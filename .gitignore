@@ -1,0 +1,7 @@
+# Archivos compilados
+dist
+
+# Dependencias
+/node_modules
+
+/.vscode
