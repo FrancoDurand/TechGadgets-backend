@@ -9,7 +9,7 @@ class UsuarioController {
             const resultado = await Usuario.login(usuario);
 
             if (resultado)
-                res.status(200).json({ resultado: resultado });
+                res.status(200).json(resultado);
             else
                 res.status(401).json({ resultado: resultado, message: 'Credenciales invalidas' });
         }

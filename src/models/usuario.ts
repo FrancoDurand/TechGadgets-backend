@@ -11,13 +11,13 @@ class Usuario implements IUsuario {
         this.contraseña = usuario.contraseña || '';
     }
 
-    public static async login(usuario: IUsuario): Promise<boolean> {
+    public static async login(usuario: IUsuario): Promise<IUsuario> {
         try {
             const connection = await Database.connect();
-            const query = 'SELECT nombre, contraseña FROM usuarios WHERE nombre = ? and contraseña = ?';
+            const query = 'SELECT id, nombre, contraseña FROM usuarios WHERE nombre = ? and contraseña = ?';
             const [rows] = await connection.query<IUsuarioRow[]>(query, [usuario.nombre, usuario.contraseña]);
             connection.release();
-            return rows.length > 0;
+            return rows[0];
         } catch (error) {
             throw error;
         }
