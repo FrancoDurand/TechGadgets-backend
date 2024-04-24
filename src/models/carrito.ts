@@ -40,7 +40,7 @@ class Carrito implements ICarrito {
     public static async getCarrito(usuario_id: number): Promise<ICarritoDetalle[]> {
         try {
             const connection = await Database.connect();
-            const query = 'SELECT p.nombre, p.marca, p.precio, c.cantidad, (p.precio * c.cantidad) AS subtotal, p.ruta_img FROM carrito c JOIN productos p ON c.producto_id = p.id WHERE c.usuario_id = ?';
+            const query = 'SELECT p.id, p.nombre, p.marca, p.precio, c.cantidad, (p.precio * c.cantidad) AS subtotal, p.ruta_img FROM carrito c JOIN productos p ON c.producto_id = p.id WHERE c.usuario_id = ?';
             const [rows] = await connection.query<ICarritoDetalleRow[]>(query, [usuario_id]);
             connection.release();
             return rows;
