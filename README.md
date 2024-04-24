@@ -17,7 +17,9 @@
 #### Respuesta
 ``` json
 {
-  "resultado": true
+  "id": 1,
+  "nombre": "juan",
+  "contraseña": "contraseñasegura123"
 }
 ```
 
@@ -198,6 +200,7 @@
 ``` json
 [
   {
+    "id": 2,
     "nombre": "iPhone 15",
     "marca": "Apple",
     "precio": "3549.00",
